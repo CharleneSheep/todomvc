@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TodoMVC</title>
+  <!-- 1. 引入的基本样式 -->
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <section class="todoapp" id='app'>
+    <!-- 头部 -->
+    <my-component-header @add-todo='addTodo'></my-component-header>
+
+    <!-- 主体 -->
+    <my-component-content :list='showList' :is-checked='isChecked' @edit-checked='editChecked' @edit-todo='editTodo'
+      @del-todo='delTodo' @edit-done='editDone'>
+    </my-component-content>
+
+    <!-- 底部 -->
+    <my-component-footer :count-left='countLeft' :has-length='hasLength' :has-done='hasDone'
+      @clear-completed='clearCompleted'>
+    </my-component-footer>
+
+  </section>
+  <!-- 引入vue -->
+  <script src="./js/vue.js"></script>
+  <!-- 引入路由 路由依赖于vue -->
+  <script src="./js/vue-router.js"></script>
+  <!-- 组件要在实例vue之前引入 -->
+  <script src="./js/component-header.js"></script>
+  <script src="./js/component-content.js"></script>
+  <script src="./js/component-footer.js"></script>
+  <!-- JS 逻辑部分 -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>
